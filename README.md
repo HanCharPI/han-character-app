@@ -19,7 +19,7 @@ yarn start
 ```
 - Scan the QR code in your mobile
 
-### Compiles and minifies for production
+### Compiles and minifies for production v2
 ```
 yarn build
 ```
