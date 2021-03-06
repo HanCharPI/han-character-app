@@ -1,25 +1,30 @@
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native'
-import ExpoDraw from 'expo-draw'
+import { StyleSheet, View, Button } from 'react-native';
+import { captureRef as takeSnapShotAsync } from 'react-native-view-shot';
+import ExpoDraw from 'expo-draw';
 
-const Canvas = () => {
+const Canvas = ({ setIsLoadingResults }) => {
 
   let drawRef;
 
+  const getImage = async () => {
+
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+    setIsLoadingResults(true);
+
+    const image64 = await takeSnapShotAsync(drawRef, {
+      result: 'base64',
+      quality: 0.5,
+    });
+
+    // TODO: Post image 64 to axios
+    await delay(2000);
+
+    setIsLoadingResults(false);
+  };
+
   return(
     <>
-      <View style={styles.buttonsContainer}>
-        <Button
-          title={'Rewind'}
-          onPress={() => drawRef.rewind()}
-          style={styles.button}
-        />
-        <Button
-          title={'Clear'}
-          onPress={() => drawRef.clear()}
-          style={styles.button}
-        />
-      </View>
       <View
         style={styles.canvasContainer}>
         <ExpoDraw
@@ -31,7 +36,22 @@ const Canvas = () => {
         >
         </ExpoDraw>
       </View>
-
+      <View style={styles.buttonsContainer}>
+        <Button
+          title={'Rewind'}
+          onPress={() => drawRef.rewind()}
+          style={styles.button}
+        />
+        <Button
+          title={'Clear'}
+          onPress={() => drawRef.clear()}
+          style={styles.button}
+        />
+        <Button
+          title={'Search'}
+          onPress={() => getImage()}
+        />
+      </View>
     </>
   );
 };
@@ -48,11 +68,9 @@ const styles = StyleSheet.create({
   },
   canvasContainer: {
     flex: 9,
-    width: '95%',
-    backgroundColor: '#faa',
+    width: '90%',
     borderWidth: 1,
     borderColor: 'black',
-    marginBottom: '5%'
   },
 });
 
