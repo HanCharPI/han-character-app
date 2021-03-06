@@ -1,7 +1,16 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import { DEVICE_HEIGHT } from '../dimensions';
+import ResultCell from '../components/ResultCell';
 
 const ResultsView = ({ isLoadingResults, results }) => {
+
+  let resultsCellsList = [];
+  if (results !== null) {
+    results.forEach((result, index) => {
+      resultsCellsList.push( <ResultCell kanji={result} key={index} />)
+    })
+  }
 
   if (isLoadingResults) {
     return (
@@ -12,8 +21,8 @@ const ResultsView = ({ isLoadingResults, results }) => {
   } else {
     if (results !== null) {
       return (
-        <View>
-          <Text>TODO: Results</Text>
+        <View style={styles.container}>
+          {resultsCellsList}
         </View>
       );
     } else {
@@ -26,5 +35,16 @@ const ResultsView = ({ isLoadingResults, results }) => {
   }
 
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'space-around',
+    paddingBottom: DEVICE_HEIGHT * 0.01
+  },
+});
 
 export default ResultsView;

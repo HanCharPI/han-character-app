@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import Canvas from '../components/Canvas'
-import ResultsView from './ResultsView'
+import Canvas from '../components/Canvas';
+import ResultsView from './ResultsView';
 
 const MainView = () => {
 
@@ -16,6 +16,7 @@ const MainView = () => {
       <View style={styles.canvasContainer}>
         <Canvas
           setIsLoadingResults={setIsLoadingResults}
+          setResults={setResults}
         />
       </View>
       <View style={styles.resultsContainer}>
@@ -25,9 +26,6 @@ const MainView = () => {
         />
       </View>
     </>
-
-
-
   );
 };
 
@@ -38,13 +36,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   canvasContainer: {
-    flex: 4,
+    flex: 5,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
   resultsContainer: {
-    flex: 2,
+    flex: 3,
     alignItems: 'center',
     justifyContent: 'center',
   },

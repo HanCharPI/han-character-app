@@ -2,8 +2,9 @@ import React from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 import { captureRef as takeSnapShotAsync } from 'react-native-view-shot';
 import ExpoDraw from 'expo-draw';
+import { DEVICE_WIDTH } from '../dimensions';
 
-const Canvas = ({ setIsLoadingResults }) => {
+const Canvas = ({ setIsLoadingResults, setResults }) => {
 
   let drawRef;
 
@@ -18,9 +19,11 @@ const Canvas = ({ setIsLoadingResults }) => {
     });
 
     // TODO: Post image 64 to axios
-    await delay(2000);
+    delay(2000).then(() => {
+      setResults(['胃', '缶', '水', '火', '木', '白', '威', '空'])
+      setIsLoadingResults(false);
+    })
 
-    setIsLoadingResults(false);
   };
 
   return(
@@ -68,7 +71,7 @@ const styles = StyleSheet.create({
   },
   canvasContainer: {
     flex: 9,
-    width: '90%',
+    width: DEVICE_WIDTH * 0.90,
     borderWidth: 1,
     borderColor: 'black',
   },
