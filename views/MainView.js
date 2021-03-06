@@ -1,19 +1,48 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Canvas from '../components/Canvas'
+import React, { useState } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+import Canvas from '../components/Canvas';
+import ResultsView from './ResultsView';
 
 const MainView = () => {
+
+  const [isLoadingResults, setIsLoadingResults] = useState(false);
+  const [results, setResults] = useState(null);
+
   return (
-    <View style={styles.container}>
-      <Canvas />
-    </View>
+    <>
+      <View style={styles.titleContainer}>
+        <Text>Han characters</Text>
+      </View>
+      <View style={styles.canvasContainer}>
+        <Canvas
+          setIsLoadingResults={setIsLoadingResults}
+          setResults={setResults}
+        />
+      </View>
+      <View style={styles.resultsContainer}>
+        <ResultsView
+          isLoadingResults={isLoadingResults}
+          results={results}
+        />
+      </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  titleContainer: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  canvasContainer: {
+    flex: 5,
     backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  resultsContainer: {
+    flex: 3,
     alignItems: 'center',
     justifyContent: 'center',
   },
