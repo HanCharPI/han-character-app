@@ -16,8 +16,8 @@ const ResultCell = ({ kanji }) => {
 
 const styles = StyleSheet.create({
   container: {
-    minWidth: DEVICE_WIDTH * 0.18,
-    marginHorizontal: DEVICE_WIDTH * 0.02,
+    minWidth: DEVICE_WIDTH * 0.20,
+    marginHorizontal: DEVICE_WIDTH * 0.03,
     aspectRatio: 1,
     borderRadius: 8,
     borderWidth: 4,

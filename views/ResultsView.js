@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignContent: 'space-around',
-    paddingBottom: DEVICE_HEIGHT * 0.01
+    paddingBottom: DEVICE_HEIGHT * 0.002
   },
 });
 

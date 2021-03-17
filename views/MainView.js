@@ -31,18 +31,20 @@ const MainView = () => {
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flex: 1,
+    flex: 0.5,
+    backgroundColor: 'whitesmoke',
     alignItems: 'center',
     justifyContent: 'center',
   },
   canvasContainer: {
     flex: 5,
-    backgroundColor: '#fff',
+    backgroundColor: 'whitesmoke',
     alignItems: 'center',
     justifyContent: 'center',
   },
   resultsContainer: {
     flex: 3,
+    backgroundColor: 'whitesmoke',
     alignItems: 'center',
     justifyContent: 'center',
   },
