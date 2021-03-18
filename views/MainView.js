@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import Canvas from '../components/Canvas';
 import ResultsView from './ResultsView';
+import { WhiteSpace } from '@ant-design/react-native'
 
 const MainView = () => {
 
@@ -19,6 +20,7 @@ const MainView = () => {
           setResults={setResults}
         />
       </View>
+      <WhiteSpace />
       <View style={styles.resultsContainer}>
         <ResultsView
           isLoadingResults={isLoadingResults}
@@ -36,7 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   canvasContainer: {
-    flex: 5,
+    flex: 6,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',

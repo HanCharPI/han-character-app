@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Button, Icon, WhiteSpace, WingBlank } from '@ant-design/react-native'
 import { captureRef as takeSnapShotAsync } from 'react-native-view-shot';
 import ExpoDraw from 'expo-draw';
 import { DEVICE_WIDTH } from '../dimensions';
@@ -39,21 +40,31 @@ const Canvas = ({ setIsLoadingResults, setResults }) => {
         >
         </ExpoDraw>
       </View>
+      <WhiteSpace />
       <View style={styles.buttonsContainer}>
+        <WingBlank />
         <Button
-          title={'Rewind'}
-          onPress={() => drawRef.rewind()}
-          style={styles.button}
-        />
-        <Button
-          title={'Clear'}
           onPress={() => drawRef.clear()}
           style={styles.button}
-        />
+        >
+          <Icon name='delete' color='black' />
+        </Button>
+        <WingBlank />
         <Button
-          title={'Search'}
+          onPress={() => drawRef.rewind()}
+          style={styles.button}
+        >
+          <Icon name='undo' color='black' />
+        </Button>
+        <WingBlank />
+        <Button
           onPress={() => getImage()}
-        />
+          type='primary'
+          style={styles.button}
+        >
+          <Icon name='search' color='white' />
+        </Button>
+        <WingBlank />
       </View>
     </>
   );
@@ -63,16 +74,12 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  button: {
-    flex: 1,
   },
   canvasContainer: {
     flex: 9,
     width: DEVICE_WIDTH * 0.90,
-    borderWidth: 1,
+    borderWidth: 2,
+    borderRadius: 8,
     borderColor: 'black',
   },
 });

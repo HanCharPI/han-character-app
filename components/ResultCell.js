@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     marginHorizontal: DEVICE_WIDTH * 0.02,
     aspectRatio: 1,
     borderRadius: 8,
-    borderWidth: 4,
+    borderWidth: 2,
     borderColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
