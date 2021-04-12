@@ -3,12 +3,17 @@ import { View, Text, StyleSheet } from 'react-native';
 import { DEVICE_HEIGHT } from '../dimensions';
 import ResultCell from '../components/ResultCell';
 
-const ResultsView = ({ isLoadingResults, results }) => {
+const ResultsView = ({ isLoadingResults, results, setSelectedKanji }) => {
 
   let resultsCellsList = [];
   if (results !== null) {
     results.forEach((result, index) => {
-      resultsCellsList.push( <ResultCell kanji={result} key={index} />)
+      resultsCellsList.push(
+        <ResultCell
+          kanji={result}
+          key={index}
+          setSelectedKanji={setSelectedKanji}
+        />)
     })
   }
 

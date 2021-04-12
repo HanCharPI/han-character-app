@@ -2,12 +2,18 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
 import { DEVICE_WIDTH } from '../dimensions';
 
-const ResultCell = ({ kanji }) => {
+const ResultCell = ({ kanji, setSelectedKanji }) => {
+
+  const onClickCell = () => {
+    setSelectedKanji(kanji);
+  };
 
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => onClickCell()}>
       <View style={styles.container}>
-        <Text style={styles.kanji}>{kanji}</Text>
+        <Text style={styles.kanji}>
+          {kanji}
+        </Text>
       </View>
     </TouchableOpacity>
   );
