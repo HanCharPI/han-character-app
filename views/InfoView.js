@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import { Button, SafeAreaView, ScrollView } from 'react-native';
-import SvgUri from 'expo-svg-uri';
 import { default as kanjiJson } from '../assets/data/kanji_info.json';
-import { DEVICE_HEIGHT, DEVICE_WIDTH, STATUS_BAR_HEIGHT } from '../dimensions'
+import { DEVICE_HEIGHT, DEVICE_WIDTH, STATUS_BAR_HEIGHT } from '../dimensions';
+import StrokeImagesRow from '../components/kanji-info/StrokeImagesRow';
+import { WhiteSpace, WingBlank } from '@ant-design/react-native'
 
 const InfoView = ({ kanji, setSelectedKanji }) => {
 
@@ -22,6 +23,42 @@ const InfoView = ({ kanji, setSelectedKanji }) => {
       })
   }, [])
 
+  const getStrokeImages = () => {
+    if (kanjiInfo.kanji.strokes.images != null) {
+      return <StrokeImagesRow imageUris={kanjiInfo.kanji.strokes.images} />;
+    }
+  };
+
+  const getOnyomi= () => {
+    const onyomi = kanjiInfo.kanji.onyomi;
+    if (onyomi != null) {
+      return (
+        <>
+          <WhiteSpace />
+          <Text style={styles.onyomi}>
+            {`${onyomi.katakana} (${onyomi.romaji})`}
+          </Text>
+          <WhiteSpace />
+        </>
+      );
+    }
+  }
+
+  const getKunyomi = () => {
+    const kunyomi = kanjiInfo.kanji.kunyomi;
+    if (kunyomi != null) {
+      return (
+        <>
+          <WhiteSpace />
+          <Text style={styles.kunyomi}>
+            {`${kunyomi.hiragana} (${kunyomi.romaji})`}
+          </Text>
+          <WhiteSpace />
+        </>
+      );
+    }
+  };
+
   if (kanjiInfo === null) {
     return (
       <View>
@@ -38,17 +75,19 @@ const InfoView = ({ kanji, setSelectedKanji }) => {
           onPress={() => onClickBack()}
           style={styles.backButton}
         />
+        <WingBlank />
         <Text style={styles.mainKanji}>
           {kanji}
         </Text>
-        <SafeAreaView style={styles.scrollContainer}>
-          <ScrollView>
+        <WingBlank />
+        <SafeAreaView style={styles.safeContainer}>
+          <ScrollView contentContainerStyle={styles.scrollContainer}>
+            {getOnyomi()}
+            {getKunyomi()}
+            {getStrokeImages()}
             <Text>
-              { JSON.stringify(kanjiInfo) }
+              { JSON.stringify(kanjiInfo.examples) }
             </Text>
-            <SvgUri
-              source={{ uri: kanjiInfo.kanji.strokes.images[0] }}
-            />
           </ScrollView>
         </SafeAreaView>
         <Text>
@@ -73,8 +112,21 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: DEVICE_HEIGHT * 0.08,
   },
-  scrollContainer: {
+  safeContainer: {
     flex: 8,
+  },
+  scrollContainer: {
+    alignItems: 'center',
+  },
+  onyomi: {
+    fontSize: DEVICE_HEIGHT * 0.03,
+    fontWeight: 'bold',
+    color: 'firebrick',
+  },
+  kunyomi: {
+    fontSize: DEVICE_HEIGHT * 0.03,
+    fontWeight: 'bold',
+    color: 'midnightblue',
   },
 });
 
