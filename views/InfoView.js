@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button, SafeAreaView, ScrollView } from 'react-native';
+import { WhiteSpace, WingBlank } from '@ant-design/react-native';
 import { default as kanjiJson } from '../assets/data/kanji_info.json';
 import { DEVICE_HEIGHT, DEVICE_WIDTH, STATUS_BAR_HEIGHT } from '../dimensions';
 import StrokeImagesRow from '../components/kanji-info/StrokeImagesRow';
-import { WhiteSpace, WingBlank } from '@ant-design/react-native'
+import ExamplesRow from '../components/kanji-info/ExamplesRow';
 
 const InfoView = ({ kanji, setSelectedKanji }) => {
 
@@ -59,6 +60,12 @@ const InfoView = ({ kanji, setSelectedKanji }) => {
     }
   };
 
+  const getExamples = () => {
+    if (kanjiInfo.examples != null) {
+      return <ExamplesRow examples={kanjiInfo.examples} />
+    }
+  };
+
   if (kanjiInfo === null) {
     return (
       <View>
@@ -85,9 +92,7 @@ const InfoView = ({ kanji, setSelectedKanji }) => {
             {getOnyomi()}
             {getKunyomi()}
             {getStrokeImages()}
-            <Text>
-              { JSON.stringify(kanjiInfo.examples) }
-            </Text>
+            {getExamples()}
           </ScrollView>
         </SafeAreaView>
         <Text>
