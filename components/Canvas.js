@@ -20,7 +20,7 @@ const Canvas = ({ setIsLoadingResults, setResults }) => {
     });
 
     // TODO: Post image 64 to axios
-    delay(2000).then(() => {
+    delay(1000).then(() => {
       setResults(['胃', '缶', '水', '火', '木', '白', '威', '空'])
       setIsLoadingResults(false);
     })

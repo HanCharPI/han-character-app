@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import { Button, Icon, WhiteSpace } from '@ant-design/react-native'
-import { DEVICE_HEIGHT } from '../../dimensions'
+import { WhiteSpace } from '@ant-design/react-native';
+import { DEVICE_HEIGHT } from '../../dimensions';
+import AudioButton from './AudioButton';
 
 const ExamplesRow = ({ examples }) => {
 
@@ -21,11 +22,7 @@ const ExamplesRow = ({ examples }) => {
             </Text>
           </View>
           <View style={styles.buttonContainer}>
-            <Button
-              type='primary'
-            >
-              <Icon name='sound' color='white' />
-            </Button>
+            <AudioButton uri={example.audio.mp3} />
           </View>
         </View>
         <WhiteSpace />

@@ -18,7 +18,7 @@ const InfoView = ({ kanji, setSelectedKanji }) => {
   };
 
   useEffect(() => {
-    delay(2000)
+    delay(1000)
       .then(() => {
         setKanjiInfo(kanjiJson);
       })
