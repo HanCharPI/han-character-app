@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button, SafeAreaView, ScrollView } from 'react-native';
-import { WhiteSpace, WingBlank } from '@ant-design/react-native';
+import { ActivityIndicator, WhiteSpace, WingBlank } from '@ant-design/react-native'
 import { default as kanjiJson } from '../assets/data/kanji_info.json';
 import { DEVICE_HEIGHT, DEVICE_WIDTH, STATUS_BAR_HEIGHT } from '../dimensions';
 import StrokeImagesRow from '../components/kanji-info/StrokeImagesRow';
@@ -22,7 +22,7 @@ const InfoView = ({ kanji, setSelectedKanji }) => {
       .then(() => {
         setKanjiInfo(kanjiJson);
       })
-  }, [])
+  }, []);
 
   const getStrokeImages = () => {
     if (kanjiInfo.kanji.strokes.images != null) {
@@ -68,10 +68,13 @@ const InfoView = ({ kanji, setSelectedKanji }) => {
 
   if (kanjiInfo === null) {
     return (
-      <View>
-        <Text>
+      <View style={styles.container}>
+        <WhiteSpace size="lg" />
+        <Text style={styles.loadingText}>
           { `Loading ${kanji}...` }
         </Text>
+        <WhiteSpace size="lg" />
+        <ActivityIndicator size="large"/>
       </View>
     );
   } else {
@@ -108,6 +111,10 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: DEVICE_WIDTH * 0.05,
     marginTop: STATUS_BAR_HEIGHT,
+  },
+  loadingText: {
+    textAlign: 'center',
+    fontSize: DEVICE_HEIGHT * 0.04,
   },
   backButton: {
     flex: 1,

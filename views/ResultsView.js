@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { DEVICE_HEIGHT } from '../dimensions';
 import ResultCell from '../components/ResultCell';
+import { ActivityIndicator, WhiteSpace } from '@ant-design/react-native'
 
 const ResultsView = ({ isLoadingResults, results, setSelectedKanji }) => {
 
@@ -20,7 +21,11 @@ const ResultsView = ({ isLoadingResults, results, setSelectedKanji }) => {
   if (isLoadingResults) {
     return (
       <View>
-        <Text>Loading...</Text>
+        <Text style={styles.loadingText}>
+          Loading results...
+        </Text>
+        <WhiteSpace />
+        <ActivityIndicator size="large"/>
       </View>
     );
   } else {
@@ -49,6 +54,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignContent: 'space-around',
     paddingBottom: DEVICE_HEIGHT * 0.01
+  },
+  loadingText: {
+    fontSize: DEVICE_HEIGHT * 0.032
   },
 });
 
