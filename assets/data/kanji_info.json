@@ -1,0 +1,184 @@
+{
+  "kanji": {
+    "character": "骨",
+    "strokes": {
+      "count": 10,
+      "images": [
+        "https://media.kanjialive.com/kanji_strokes/hone_1.svg",
+        "https://media.kanjialive.com/kanji_strokes/hone_2.svg",
+        "https://media.kanjialive.com/kanji_strokes/hone_3.svg",
+        "https://media.kanjialive.com/kanji_strokes/hone_4.svg",
+        "https://media.kanjialive.com/kanji_strokes/hone_5.svg",
+        "https://media.kanjialive.com/kanji_strokes/hone_6.svg",
+        "https://media.kanjialive.com/kanji_strokes/hone_7.svg",
+        "https://media.kanjialive.com/kanji_strokes/hone_8.svg",
+        "https://media.kanjialive.com/kanji_strokes/hone_9.svg",
+        "https://media.kanjialive.com/kanji_strokes/hone_10.svg"
+      ]
+    },
+    "onyomi": {
+      "romaji": "kotsu",
+      "katakana": "コツ"
+    },
+    "kunyomi": {
+      "romaji": "hone",
+      "hiragana": "ほね"
+    }
+  },
+  "radical": {
+    "character": "⾻",
+    "strokes": 10,
+    "image": "https://media.kanjialive.com/radical_character/hone.svg",
+    "position": {
+      "hiragana": "",
+      "romaji": "",
+      "icon": ""
+    },
+    "name": {
+      "hiragana": "ほね",
+      "romaji": "hone"
+    },
+    "meaning": {
+      "english": "bone"
+    },
+    "animation": [
+      "https://media.kanjialive.com/rad_frames/hone0.svg",
+      "https://media.kanjialive.com/rad_frames/hone1.svg",
+      "https://media.kanjialive.com/rad_frames/hone2.svg"
+    ]
+  },
+  "examples": [
+    {
+      "japanese": "骨格（こっかく）",
+      "meaning": {
+        "english": "physique, build frame"
+      },
+      "audio": {
+        "opus": "https://media.kanjialive.com/examples_audio/audio-opus/hone_06_a.opus",
+        "aac": "https://media.kanjialive.com/examples_audio/audio-aac/hone_06_a.aac",
+        "ogg": "https://media.kanjialive.com/examples_audio/audio-ogg/hone_06_a.ogg",
+        "mp3": "https://media.kanjialive.com/examples_audio/audio-mp3/hone_06_a.mp3"
+      }
+    },
+    {
+      "japanese": "骨髄（こつずい）",
+      "meaning": {
+        "english": "marrow, true spirit"
+      },
+      "audio": {
+        "opus": "https://media.kanjialive.com/examples_audio/audio-opus/hone_06_b.opus",
+        "aac": "https://media.kanjialive.com/examples_audio/audio-aac/hone_06_b.aac",
+        "ogg": "https://media.kanjialive.com/examples_audio/audio-ogg/hone_06_b.ogg",
+        "mp3": "https://media.kanjialive.com/examples_audio/audio-mp3/hone_06_b.mp3"
+      }
+    },
+    {
+      "japanese": "白骨（はっこつ）",
+      "meaning": {
+        "english": "bleached white bone"
+      },
+      "audio": {
+        "opus": "https://media.kanjialive.com/examples_audio/audio-opus/hone_06_c.opus",
+        "aac": "https://media.kanjialive.com/examples_audio/audio-aac/hone_06_c.aac",
+        "ogg": "https://media.kanjialive.com/examples_audio/audio-ogg/hone_06_c.ogg",
+        "mp3": "https://media.kanjialive.com/examples_audio/audio-mp3/hone_06_c.mp3"
+      }
+    },
+    {
+      "japanese": "遺骨（いこつ）",
+      "meaning": {
+        "english": "remains, ashes of deceased"
+      },
+      "audio": {
+        "opus": "https://media.kanjialive.com/examples_audio/audio-opus/hone_06_d.opus",
+        "aac": "https://media.kanjialive.com/examples_audio/audio-aac/hone_06_d.aac",
+        "ogg": "https://media.kanjialive.com/examples_audio/audio-ogg/hone_06_d.ogg",
+        "mp3": "https://media.kanjialive.com/examples_audio/audio-mp3/hone_06_d.mp3"
+      }
+    },
+    {
+      "japanese": "骸骨（がいこつ）",
+      "meaning": {
+        "english": "skeleton"
+      },
+      "audio": {
+        "opus": "https://media.kanjialive.com/examples_audio/audio-opus/hone_06_e.opus",
+        "aac": "https://media.kanjialive.com/examples_audio/audio-aac/hone_06_e.aac",
+        "ogg": "https://media.kanjialive.com/examples_audio/audio-ogg/hone_06_e.ogg",
+        "mp3": "https://media.kanjialive.com/examples_audio/audio-mp3/hone_06_e.mp3"
+      }
+    },
+    {
+      "japanese": "鉄骨（てっこつ）",
+      "meaning": {
+        "english": "steel frame"
+      },
+      "audio": {
+        "opus": "https://media.kanjialive.com/examples_audio/audio-opus/hone_06_f.opus",
+        "aac": "https://media.kanjialive.com/examples_audio/audio-aac/hone_06_f.aac",
+        "ogg": "https://media.kanjialive.com/examples_audio/audio-ogg/hone_06_f.ogg",
+        "mp3": "https://media.kanjialive.com/examples_audio/audio-mp3/hone_06_f.mp3"
+      }
+    },
+    {
+      "japanese": "骨折する（こっせつする）",
+      "meaning": {
+        "english": "break a bone"
+      },
+      "audio": {
+        "opus": "https://media.kanjialive.com/examples_audio/audio-opus/hone_06_g.opus",
+        "aac": "https://media.kanjialive.com/examples_audio/audio-aac/hone_06_g.aac",
+        "ogg": "https://media.kanjialive.com/examples_audio/audio-ogg/hone_06_g.ogg",
+        "mp3": "https://media.kanjialive.com/examples_audio/audio-mp3/hone_06_g.mp3"
+      }
+    },
+    {
+      "japanese": "骨（ほね）",
+      "meaning": {
+        "english": "bone"
+      },
+      "audio": {
+        "opus": "https://media.kanjialive.com/examples_audio/audio-opus/hone_06_h.opus",
+        "aac": "https://media.kanjialive.com/examples_audio/audio-aac/hone_06_h.aac",
+        "ogg": "https://media.kanjialive.com/examples_audio/audio-ogg/hone_06_h.ogg",
+        "mp3": "https://media.kanjialive.com/examples_audio/audio-mp3/hone_06_h.mp3"
+      }
+    },
+    {
+      "japanese": "骨っぽい（ほねっぽい）",
+      "meaning": {
+        "english": "bony, tough, plucky"
+      },
+      "audio": {
+        "opus": "https://media.kanjialive.com/examples_audio/audio-opus/hone_06_i.opus",
+        "aac": "https://media.kanjialive.com/examples_audio/audio-aac/hone_06_i.aac",
+        "ogg": "https://media.kanjialive.com/examples_audio/audio-ogg/hone_06_i.ogg",
+        "mp3": "https://media.kanjialive.com/examples_audio/audio-mp3/hone_06_i.mp3"
+      }
+    },
+    {
+      "japanese": "骨組み（ほねぐみ）",
+      "meaning": {
+        "english": "skeleton, framework"
+      },
+      "audio": {
+        "opus": "https://media.kanjialive.com/examples_audio/audio-opus/hone_06_j.opus",
+        "aac": "https://media.kanjialive.com/examples_audio/audio-aac/hone_06_j.aac",
+        "ogg": "https://media.kanjialive.com/examples_audio/audio-ogg/hone_06_j.ogg",
+        "mp3": "https://media.kanjialive.com/examples_audio/audio-mp3/hone_06_j.mp3"
+      }
+    },
+    {
+      "japanese": "骨惜しみ（ほねおしみ）",
+      "meaning": {
+        "english": "sparing oneself laziness"
+      },
+      "audio": {
+        "opus": "https://media.kanjialive.com/examples_audio/audio-opus/hone_06_k.opus",
+        "aac": "https://media.kanjialive.com/examples_audio/audio-aac/hone_06_k.aac",
+        "ogg": "https://media.kanjialive.com/examples_audio/audio-ogg/hone_06_k.ogg",
+        "mp3": "https://media.kanjialive.com/examples_audio/audio-mp3/hone_06_k.mp3"
+      }
+    }
+  ]
+}
