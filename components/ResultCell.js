@@ -1,10 +1,22 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
+import { getHistory, setHistory } from '../store/history';
 import { DEVICE_WIDTH } from '../dimensions';
 
 const ResultCell = ({ kanji, setSelectedKanji }) => {
 
-  const onClickCell = () => {
+  const onClickCell = async () => {
+    let history = await getHistory();
+    if (history == null) {
+      await setHistory(kanji)
+    } else {
+      history = history.split('');
+      const historySet = new Set(history);
+      if (!historySet.has(kanji)) {
+        history.unshift(kanji);
+        await setHistory(history.join(''));
+      }
+    }
     setSelectedKanji(kanji);
   };
 
