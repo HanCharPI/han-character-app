@@ -1,32 +1,23 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
-import { getHistory, setHistory } from '../store/history';
+import { WhiteSpace } from '@ant-design/react-native';
 import { DEVICE_WIDTH } from '../dimensions';
 
-const ResultCell = ({ kanji, setSelectedKanji }) => {
+const HistoryCell = ({ kanji, setSelectedKanji }) => {
 
   const onClickCell = async () => {
-    let history = await getHistory();
-    if (history == null) {
-      await setHistory(kanji)
-    } else {
-      history = history.split('');
-      const historySet = new Set(history);
-      if (!historySet.has(kanji)) {
-        history.unshift(kanji);
-        await setHistory(history.join(''));
-      }
-    }
     setSelectedKanji(kanji);
   };
 
   return (
     <TouchableOpacity onPress={() => onClickCell()}>
+      <WhiteSpace />
       <View style={styles.container}>
         <Text style={styles.kanji}>
           {kanji}
         </Text>
       </View>
+      <WhiteSpace />
     </TouchableOpacity>
   );
 
@@ -48,4 +39,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ResultCell;
+export default HistoryCell;
