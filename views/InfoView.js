@@ -2,26 +2,35 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button, SafeAreaView, ScrollView } from 'react-native';
 import { ActivityIndicator, WhiteSpace, WingBlank } from '@ant-design/react-native'
-import { default as kanjiJson } from '../assets/data/kanji_info.json';
 import { DEVICE_HEIGHT, DEVICE_WIDTH, STATUS_BAR_HEIGHT } from '../dimensions';
 import StrokeImagesRow from '../components/kanji-info/StrokeImagesRow';
 import ExamplesRow from '../components/kanji-info/ExamplesRow';
+import axios from 'axios'
+import { CHARACTER_URL } from '../store/config'
+import { GET_TOKEN } from '../store/auth'
 
 const InfoView = ({ kanji, setSelectedKanji }) => {
 
   const [kanjiInfo, setKanjiInfo] = useState(null);
 
-  const delay = ms => new Promise(res => setTimeout(res, ms));
+  const retrieveApiInfo = async () => {
+    const token = await GET_TOKEN();
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }
+    axios.get(`${CHARACTER_URL}/${kanji}`, config)
+      .then((response) => setKanjiInfo(response.data))
+      .catch((_error) => setKanjiInfo(null));
+  };
 
   const onClickBack = () => {
     setSelectedKanji(null);
   };
 
   useEffect(() => {
-    delay(1000)
-      .then(() => {
-        setKanjiInfo(kanjiJson);
-      })
+    retrieveApiInfo()
   }, []);
 
   const getStrokeImages = () => {
@@ -77,6 +86,21 @@ const InfoView = ({ kanji, setSelectedKanji }) => {
         <ActivityIndicator size="large"/>
       </View>
     );
+  } else if (kanjiInfo.kanji == null) {
+    return (
+      <View style={styles.container}>
+        <WhiteSpace size="lg" />
+        <Text style={styles.loadingText}>
+          { `${kanji} was not found` }
+        </Text>
+        <WhiteSpace size="lg" />
+        <Button
+          title="Go Back"
+          onPress={() => onClickBack()}
+          style={styles.backButton}
+        />
+      </View>
+    )
   } else {
     return (
       <View style={styles.container}>

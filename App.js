@@ -3,6 +3,7 @@ import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import { Provider as AntDProvider } from '@ant-design/react-native';
 import MainView from './views/MainView';
+import { LOGIN } from './store/auth';
 
 class App extends React.Component {
 
@@ -27,7 +28,9 @@ class App extends React.Component {
       // eslint-disable-next-line
       require('@ant-design/icons-react-native/fonts/antfill.ttf')
     );
-    // eslint-disable-next-line
+
+    await LOGIN();
+
     this.setState({ isReady: true });
   }
 
