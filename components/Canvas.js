@@ -3,29 +3,48 @@ import { StyleSheet, View } from 'react-native';
 import { Button, Icon, WhiteSpace, WingBlank } from '@ant-design/react-native'
 import { captureRef as takeSnapShotAsync } from 'react-native-view-shot';
 import ExpoDraw from 'expo-draw';
+import axios from 'axios';
 import { DEVICE_WIDTH } from '../dimensions';
+import { GET_TOKEN } from '../store/auth';
+import { CHARACTER_URL } from '../store/config';
 
 const Canvas = ({ setIsLoadingResults, setResults }) => {
 
   let drawRef;
 
-  const getImage = async () => {
+  const postImage = async () => {
 
-    const delay = ms => new Promise(res => setTimeout(res, ms));
-    setIsLoadingResults(true);
-
+    const token = await GET_TOKEN();
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    };
     const image64 = await takeSnapShotAsync(drawRef, {
       result: 'base64',
       quality: 0.5,
     });
 
-    // TODO: Post image 64 to axios
-    delay(1000).then(() => {
-      setResults(['胃', '缶', '水', '火', '木', '白', '威', '空'])
-      setIsLoadingResults(false);
-    })
+    setIsLoadingResults(true);
+    axios.post(CHARACTER_URL, {
+      'image-base64': image64,
+    }, config)
+      .then((response) => {
+        const characters = enlistResponse(response.data.character);
+        setResults(characters);
+      })
+      .catch((error) => console.log(error))
+      .finally(() => setIsLoadingResults(false));
 
   };
+
+  const enlistResponse = (options) => {
+    const characters = [];
+    for (const [, character] of Object.entries(options)) {
+      characters.push(character);
+    }
+    return characters;
+  }
 
   return(
     <>
@@ -58,7 +77,7 @@ const Canvas = ({ setIsLoadingResults, setResults }) => {
         </Button>
         <WingBlank />
         <Button
-          onPress={() => getImage()}
+          onPress={() => postImage()}
           type='primary'
           style={styles.button}
         >
