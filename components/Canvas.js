@@ -30,21 +30,12 @@ const Canvas = ({ setIsLoadingResults, setResults }) => {
       'image-base64': image64,
     }, config)
       .then((response) => {
-        const characters = enlistResponse(response.data.character);
-        setResults(characters);
+        setResults(response.data.prediction);
       })
       .catch((error) => console.log(error))
       .finally(() => setIsLoadingResults(false));
 
   };
-
-  const enlistResponse = (options) => {
-    const characters = [];
-    for (const [, character] of Object.entries(options)) {
-      characters.push(character);
-    }
-    return characters;
-  }
 
   return(
     <>

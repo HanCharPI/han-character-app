@@ -59,6 +59,7 @@ const HistoryView = ({ setIsHistorySelected }) => {
   } else if (isLoadingHistory) {
     return (
       <View>
+        <WhiteSpace />
         <Text style={styles.titleText}>
           Loading history...
         </Text>
