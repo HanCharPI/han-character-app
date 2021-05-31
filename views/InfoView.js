@@ -39,6 +39,21 @@ const InfoView = ({ kanji, setSelectedKanji }) => {
     }
   };
 
+  const getMeaning = () => {
+    const meaning = kanjiInfo.kanji.meaning.english;
+    if (meaning != null) {
+      return (
+        <>
+          <WhiteSpace />
+          <Text style={styles.meaning}>
+            {`${meaning}`}
+          </Text>
+          <WhiteSpace />
+        </>
+      )
+    }
+  };
+
   const getOnyomi= () => {
     const onyomi = kanjiInfo.kanji.onyomi;
     if (onyomi != null) {
@@ -110,12 +125,14 @@ const InfoView = ({ kanji, setSelectedKanji }) => {
           style={styles.backButton}
         />
         <WingBlank />
+        <WhiteSpace size="lg" />
         <Text style={styles.mainKanji}>
           {kanji}
         </Text>
         <WingBlank />
         <SafeAreaView style={styles.safeContainer}>
           <ScrollView contentContainerStyle={styles.scrollContainer}>
+            {getMeaning()}
             {getOnyomi()}
             {getKunyomi()}
             {getStrokeImages()}
@@ -153,6 +170,11 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     alignItems: 'center',
+  },
+  meaning: {
+    fontSize: DEVICE_HEIGHT * 0.03,
+    fontWeight: 'bold',
+    color: 'black',
   },
   onyomi: {
     fontSize: DEVICE_HEIGHT * 0.03,

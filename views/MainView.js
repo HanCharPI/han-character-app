@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { Button, Icon, WhiteSpace } from '@ant-design/react-native';
+import { DEVICE_HEIGHT } from '../dimensions';
 import Canvas from '../components/Canvas';
 import ResultsView from './ResultsView';
 import InfoView from './InfoView';
@@ -23,11 +24,13 @@ const MainView = () => {
     return (
       <>
         <View style={styles.titleContainer}>
-          <Text>Han characters</Text>
+          <Text style={styles.titleText}>
+            Han characters
+          </Text>
           <Button
             onPress={() => onClickHistory()}
           >
-            <Icon name='delete' color='black' />
+            <Icon name='book' color='black' />
           </Button>
         </View>
         <View style={styles.canvasContainer}>
@@ -74,6 +77,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  titleText: {
+    fontSize: DEVICE_HEIGHT * 0.03,
+    fontWeight: 'bold',
+    color: 'black',
+  }
 });
 
 export default MainView;
